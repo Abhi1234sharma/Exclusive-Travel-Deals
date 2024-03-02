@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Favicon-img..jpg" type="image/x-icon">
+    <title>Exclusive Travel Deals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background: url(background-img..webp);
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align-last: center;
+        }
+        h2 {
+            text-align: center;
+            color: #0674b5;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="message"],
+        input[type="submit"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="message"]:focus,
+        input[type="email"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+        footer a {
+            color: #333;
+            text-decoration: none;
+            color: white;
+        }
+        footer a:hover {
+            font-size: 16px; 
+            color: #0056b3;
+        }
+        footer p {
+            margin: 0;
+            padding: 0;
+        }
+        footer p:hover a {
+            font-style: italic;
+            color: #007bff; /* Change text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>"Discover the attractions with Unbeatable Rates, Unmatched Deals, and Unforgettable Service!"</h2>
+        
+        <form id="leadForm" action="https://formspree.io/f/mnqevrwv" method="post" onsubmit="return validateForm()">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone" pattern="\d*" minlength="10" required>
+            <input type="message" id="message" name="message" placeholder="Your Message" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p id="websiteText"><a href="https://www.himalayanmysteries.com" target="_blank">Visit our main website for your customized tour packages.</a></p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var phoneInput = document.getElementById('phone');
+            if (phoneInput.value.length < 10) {
+                alert("Phone number must be at least 10 digits long.");
+                return false;
+            }
+
+            var emailInput = document.getElementById('email');
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+
+        document.getElementById('phone').addEventListener('input', function(event) {
+            // Remove non-numeric characters from input
+            this.value = this.value.replace(/\D/g, '');
+        });
+    </script>
+</body>
+</html>
